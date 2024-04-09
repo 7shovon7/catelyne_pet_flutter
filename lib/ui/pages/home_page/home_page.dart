@@ -1,7 +1,8 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/child_size_provider.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/widgets/drawer.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_background.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/nav_bar.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Size childSize = Size.zero;
   Widget bannerMainContent = Container();
-  // final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +116,8 @@ class _HomePageState extends State<HomePage> {
       );
     }
     return Scaffold(
-      // key: scaffoldKey,
-      // drawer: Drawer(),
+      key: scaffoldKey,
+      endDrawer: const CSDrawer(),
       body: ListView(
         children: [
           // Banner section

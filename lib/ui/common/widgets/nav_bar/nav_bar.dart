@@ -5,7 +5,9 @@ import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CSNavBar extends StatelessWidget {
-  const CSNavBar({super.key});
+  const CSNavBar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class CSNavBar extends StatelessWidget {
                 width: 30.0,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
                 icon: const Icon(
                   FontAwesomeIcons.bars,
                   color: textColor,
