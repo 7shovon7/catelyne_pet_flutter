@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        textTheme: GoogleFonts.ibmPlexSerifTextTheme(
+        textTheme: GoogleFonts.robotoTextTheme(
           Theme.of(context).textTheme,
+        ),
+        appBarTheme: const AppBarTheme(
+          centerTitle: false,
         ),
       ),
       home: const HomePage(),
