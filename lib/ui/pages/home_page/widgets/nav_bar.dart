@@ -1,5 +1,7 @@
+import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CSNavBar extends StatelessWidget {
@@ -7,6 +9,8 @@ class CSNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = context.width;
+    final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
     const textColor = Colors.white;
     Widget menuItem(String title) {
       return Padding(
@@ -18,6 +22,49 @@ class CSNavBar extends StatelessWidget {
           ),
         ),
       );
+    }
+
+    List<Widget> menuBarWithCart() {
+      if (isFullSizedNav) {
+        return [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              menuItem('Home'),
+              menuItem('Products'),
+              menuItem('About Us'),
+              menuItem('Blog'),
+              menuItem('Contact'),
+            ],
+          ),
+          const Icon(
+            FontAwesomeIcons.basketShopping,
+            color: textColor,
+          ),
+        ];
+      } else {
+        return [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                FontAwesomeIcons.basketShopping,
+                color: textColor,
+              ),
+              const SizedBox(
+                width: 30.0,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  FontAwesomeIcons.bars,
+                  color: textColor,
+                ),
+              ),
+            ],
+          ),
+        ];
+      }
     }
 
     return Padding(
@@ -34,20 +81,7 @@ class CSNavBar extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              menuItem('Home'),
-              menuItem('Products'),
-              menuItem('About Us'),
-              menuItem('Blog'),
-              menuItem('Contact'),
-            ],
-          ),
-          const Icon(
-            FontAwesomeIcons.basketShopping,
-            color: textColor,
-          ),
+          ...menuBarWithCart(),
         ],
       ),
     );
