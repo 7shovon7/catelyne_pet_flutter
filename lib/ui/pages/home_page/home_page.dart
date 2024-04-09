@@ -1,8 +1,6 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/widgets/drawer.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_background.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   double totalStackHeight = 0;
   Widget bannerMainContent = Container();
   Widget offerBannerMainContent = Container();
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  // final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -84,76 +82,26 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      endDrawer: const CSDrawer(),
-      body: ListView(
-        children: [
-          // Banner section
-          Stack(
-            children: [
-              BannerBackground(
-                height: totalStackHeight,
-                offerBannerHeight: offerBannerHeight,
-                // height: 1000,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: UiConstants.generalDisplayHorizontalPadding,
-                ),
-                child: MeasuredSize(
-                  onChange: (p0) {
-                    setState(() {
-                      childSize = p0;
-                      totalStackHeight =
-                          childSize.height + offerBannerHeight / 2.0;
-                    });
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const CSNavBar(),
-                      // Banner main content
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 60,
-                        ),
-                        child: bannerMainContent,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: offerBannerHeight / 2.0,
-              ),
-              Positioned(
-                bottom: 0,
-                left: UiConstants.generalDisplayHorizontalPadding,
-                right: UiConstants.generalDisplayHorizontalPadding,
-                child: MeasuredSize(
-                  onChange: (p0) {
-                    setState(() {
-                      offerBannerHeight = p0.height;
-                      totalStackHeight =
-                          offerBannerHeight / 2.0 + childSize.height;
-                    });
-                  },
-                  child: offerBannerMainContent,
-                ),
-              ),
-            ],
+    return CsScaffold(
+      additionalBgHeight: offerBannerHeight / 2.0,
+      foregroundWidgets: [
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 60,
           ),
-          const Column(
-            children: [
-              // Rest of the page
-              Text('Rest of the page'),
-              // Rest of the page
-              Text('Rest of the page'),
-            ],
-          )
-        ],
-      ),
+          child: bannerMainContent,
+        ),
+      ],
+      mainWidgets: [
+        MeasuredSize(
+          onChange: (p0) {
+            setState(() {
+              offerBannerHeight = p0.height;
+            });
+          },
+          child: offerBannerMainContent,
+        ),
+      ],
     );
   }
 
