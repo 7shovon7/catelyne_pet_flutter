@@ -5,6 +5,7 @@ abstract class UiConstants {
   static const accentColor = Color(0xFFC96C4F);
 
   static const white = Colors.white;
+  static const offWhite = Color.fromARGB(255, 182, 182, 182);
 
   static const largeDisplayMinWidth = 850;
 

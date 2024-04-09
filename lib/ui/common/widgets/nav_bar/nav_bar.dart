@@ -1,4 +1,5 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/utils.dart';
@@ -14,13 +15,23 @@ class CSNavBar extends StatelessWidget {
     final deviceWidth = context.width;
     final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
     const textColor = Colors.white;
-    Widget menuItem(String title) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: textColor,
+    Widget menuItem(
+      String title, {
+      bool isActive = false,
+      void Function()? onPressed,
+    }) {
+      return TextButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(WidgetConstants.defaultBoxShape),
+        ),
+        onPressed: onPressed ?? () {},
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Text(
+            title,
+            style: TextStyle(
+              color: isActive ? textColor : UiConstants.offWhite,
+            ),
           ),
         ),
       );
@@ -32,7 +43,10 @@ class CSNavBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              menuItem('Home'),
+              menuItem(
+                'Home',
+                isActive: true,
+              ),
               menuItem('Products'),
               menuItem('About Us'),
               menuItem('Blog'),
@@ -70,7 +84,7 @@ class CSNavBar extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 34.0),
+      padding: const EdgeInsets.only(top: 34.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
