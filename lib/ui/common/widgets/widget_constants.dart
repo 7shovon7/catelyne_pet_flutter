@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/ui/common/theme/color_schemes.g.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,18 @@ abstract class WidgetConstants {
 
   static final defaultBoxShape = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(0),
+  );
+
+  static final defaultOutlineButtonStyle = OutlinedButton.styleFrom(
+    elevation: 0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(0),
+      side: BorderSide(
+        color: lightColorScheme.onPrimaryContainer,
+        width: 4,
+      ),
+    ),
+    foregroundColor: lightColorScheme.onPrimaryContainer,
   );
 
   static final ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(

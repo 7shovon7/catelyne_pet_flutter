@@ -1,11 +1,11 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_fg_content.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/home_product_categories.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_product_categories.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/offer_message_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,26 +42,8 @@ class _HomePageState extends State<HomePage> {
             });
           },
         ),
-        const SizedBox(
-          height: 30.0,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: Text(
-            'Categories',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.ibmPlexSerif(
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-              fontSize: 36.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, incididunt ut labore et dolore magna.',
-          textAlign: TextAlign.center,
-        ),
-        const HomeProductCategories(),
+        ...homePageProductCategoriesSectionWidgets(context),
+        ...homePageBestSellersSectionWidgets(context),
       ],
     );
   }

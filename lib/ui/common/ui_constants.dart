@@ -12,4 +12,6 @@ abstract class UiConstants {
   static const double generalDisplayHorizontalPadding = 32.0;
 
   static const double generalCardElevation = 4.0;
+
+  static const String bdtSymbol = '৳';
 }
