@@ -1,5 +1,5 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +12,7 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 60.0,
-        horizontal: 10.0,
+        // horizontal: 10.0,
       ),
       child: Material(
         color: UiConstants.white,
@@ -70,8 +70,8 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
     ),
     CsGridView(
       maxItemsPerRow: 4,
-      childFlex: 40,
-      dividerFlex: 1,
+      // childFlex: 20,
+      // dividerFlex: 1,
       children: [
         categoryCard(
           iconData: FontAwesomeIcons.bone,
