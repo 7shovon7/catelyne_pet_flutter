@@ -1,4 +1,5 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,43 +9,40 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
     required IconData iconData,
     required String title,
   }) {
-    return Flexible(
-      flex: 1,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 60.0,
-          horizontal: 10.0,
-        ),
-        child: Material(
-          color: UiConstants.white,
-          elevation: UiConstants.generalCardElevation,
-          child: InkWell(
-            hoverColor: UiConstants.accentColor,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 66.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Icon(
-                    iconData,
-                    size: 82.0,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 60.0,
+        horizontal: 10.0,
+      ),
+      child: Material(
+        color: UiConstants.white,
+        elevation: UiConstants.generalCardElevation,
+        child: InkWell(
+          hoverColor: UiConstants.accentColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 66.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Icon(
+                  iconData,
+                  size: 82.0,
+                ),
+                const SizedBox(
+                  height: 32.0,
+                ),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const SizedBox(
-                    height: 32.0,
-                  ),
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            onTap: () {},
           ),
+          onTap: () {},
         ),
       ),
     );
@@ -70,7 +68,10 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, incididunt ut labore et dolore magna.',
       textAlign: TextAlign.center,
     ),
-    Row(
+    CsGridView(
+      maxItemsPerRow: 4,
+      childFlex: 40,
+      dividerFlex: 1,
       children: [
         categoryCard(
           iconData: FontAwesomeIcons.bone,
