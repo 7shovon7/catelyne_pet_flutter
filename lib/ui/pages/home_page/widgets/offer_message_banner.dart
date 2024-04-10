@@ -74,12 +74,9 @@ class HomepageOfferMessageBanner extends StatelessWidget {
     return MeasuredSize(
       onChange: onChange,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: screenShouldShrink ? 20.0 : 40,
-          vertical: 20.0,
-        ),
-        margin: const EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: UiConstants.generalDisplayHorizontalPadding,
+          vertical: 20.0,
         ),
         width: double.infinity,
         color: UiConstants.accentColor,
