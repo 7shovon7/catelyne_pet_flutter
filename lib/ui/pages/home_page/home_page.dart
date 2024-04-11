@@ -3,6 +3,7 @@ import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart
 import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_fg_content.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_product_categories.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/home_client_testimonials.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/offer_message_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double offerBannerHeight = 0;
   double totalStackHeight = 0;
+  double clientSectionHeigh = 0;
   Widget bannerMainContent = Container();
 
   @override
@@ -36,16 +38,24 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
       mainWidgets: [
-        HomepageOfferMessageBanner(
-          screenShouldShrink: screenShouldShrink,
-          onChange: (p0) {
-            setState(() {
-              offerBannerHeight = p0.height;
-            });
-          },
+        SizedBox(
+          width: contentWidth - UiConstants.generalDisplayHorizontalPadding * 2,
+          child: Column(
+            children: [
+              HomepageOfferMessageBanner(
+                screenShouldShrink: screenShouldShrink,
+                onChange: (p0) {
+                  setState(() {
+                    offerBannerHeight = p0.height;
+                  });
+                },
+              ),
+              ...homePageProductCategoriesSectionWidgets(context),
+              ...homePageBestSellersSectionWidgets(context),
+            ],
+          ),
         ),
-        ...homePageProductCategoriesSectionWidgets(context),
-        ...homePageBestSellersSectionWidgets(context),
+        HomeClientTestimonialsSection(contentWidth: contentWidth),
       ],
     );
   }

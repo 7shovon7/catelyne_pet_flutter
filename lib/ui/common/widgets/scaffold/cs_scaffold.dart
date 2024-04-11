@@ -42,35 +42,41 @@ class _CsScaffoldState extends State<CsScaffold> {
               BannerBackground(
                 height: bgHeight + widget.additionalBgHeight,
               ),
-              Center(
-                child: SizedBox(
-                  width: contentWidth,
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: UiConstants.generalDisplayHorizontalPadding,
-                    ),
-                    children: [
-                      MeasuredSize(
-                        onChange: (p0) {
-                          setState(() {
-                            bgHeight = p0.height;
-                          });
-                        },
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const CSNavBar(),
-                            // Banner main content
-                            ...widget.foregroundWidgets,
-                          ],
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                    child: SizedBox(
+                      width: contentWidth,
+                      child: ListView(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal:
+                              UiConstants.generalDisplayHorizontalPadding,
                         ),
+                        children: [
+                          MeasuredSize(
+                            onChange: (p0) {
+                              setState(() {
+                                bgHeight = p0.height;
+                              });
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const CSNavBar(),
+                                // Banner main content
+                                ...widget.foregroundWidgets,
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      ...widget.mainWidgets,
-                    ],
+                    ),
                   ),
-                ),
+                  ...widget.mainWidgets,
+                ],
               ),
             ],
           ),
