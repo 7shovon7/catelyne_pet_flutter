@@ -85,7 +85,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
                 height: bannerSubsectionWidth / 1.3,
                 // height: bannerSubsectionWidth,
                 decoration: BoxDecoration(
-                  color: UiConstants.offWhite,
+                  color: UiConstants.white.withOpacity(0.1),
                   borderRadius:
                       BorderRadius.circular(bannerSubsectionWidth / 2.0),
                 ),
@@ -96,14 +96,35 @@ class HomeBannerForegroundContent extends StatelessWidget {
               child: SizedBox(
                 width: bannerSubsectionWidth / 1.3,
                 height: bannerSubsectionWidth / 1.3,
-                child: Container(
-                  width: bannerSubsectionWidth / 1.5,
-                  height: bannerSubsectionWidth / 1.5,
-                  // height: bannerSubsectionWidth,
-                  decoration: BoxDecoration(
-                    color: UiConstants.white,
-                    borderRadius:
-                        BorderRadius.circular(bannerSubsectionWidth / 2.0),
+                child: Align(
+                  child: Container(
+                    width: bannerSubsectionWidth / 1.47,
+                    height: bannerSubsectionWidth / 1.47,
+                    // height: bannerSubsectionWidth,
+                    decoration: BoxDecoration(
+                      color: UiConstants.white.withOpacity(0.2),
+                      borderRadius:
+                          BorderRadius.circular(bannerSubsectionWidth / 2.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: bannerSubsectionWidth / 1.3,
+                height: bannerSubsectionWidth / 1.3,
+                child: Align(
+                  child: Container(
+                    width: bannerSubsectionWidth / 1.7,
+                    height: bannerSubsectionWidth / 1.7,
+                    // height: bannerSubsectionWidth,
+                    decoration: BoxDecoration(
+                      color: UiConstants.white,
+                      borderRadius:
+                          BorderRadius.circular(bannerSubsectionWidth / 2.0),
+                    ),
                   ),
                 ),
               ),
