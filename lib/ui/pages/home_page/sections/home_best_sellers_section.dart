@@ -102,11 +102,14 @@ List<ProductViewModel> allProducts = [
   // Add more products as needed
 ];
 
-List<Widget> homePageBestSellersSectionWidgets(BuildContext context) => [
+List<Widget> homePageBestSellersSectionWidgets(
+        BuildContext context, double contentWidth) =>
+    [
       SectionTitleWithButton(
         title: 'Best Sellers',
         buttonText: 'Explore Now',
         onPressed: () {},
+        displayWidth: contentWidth,
       ),
       CsGridView(
         maxItemsPerRow: 3,
