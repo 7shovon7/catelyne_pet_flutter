@@ -1,8 +1,11 @@
+import 'dart:js';
+
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/nav_bar.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/widgets/drawer.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/banner_background.dart';
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 import 'package:measured_size/measured_size.dart';
 
 class CsScaffold extends StatefulWidget {
@@ -28,40 +31,51 @@ class _CsScaffoldState extends State<CsScaffold> {
   double bgHeight = 0.0;
   @override
   Widget build(BuildContext context) {
+    double deviceWidth = context.width;
+    double contentWidth = deviceWidth > UiConstants.largeDisplayMaxWidth
+        ? UiConstants.largeDisplayMaxWidth
+        : deviceWidth;
     return Scaffold(
       endDrawer: const CSDrawer(),
       body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            BannerBackground(
-              height: bgHeight + widget.additionalBgHeight,
-            ),
-            ListView(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.symmetric(
-                horizontal: UiConstants.generalDisplayHorizontalPadding,
+        child: SafeArea(
+          child: Stack(
+            children: [
+              BannerBackground(
+                height: bgHeight + widget.additionalBgHeight,
               ),
-              children: [
-                MeasuredSize(
-                  onChange: (p0) {
-                    setState(() {
-                      bgHeight = p0.height;
-                    });
-                  },
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+              Center(
+                child: SizedBox(
+                  width: contentWidth,
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: UiConstants.generalDisplayHorizontalPadding,
+                    ),
                     children: [
-                      const CSNavBar(),
-                      // Banner main content
-                      ...widget.foregroundWidgets,
+                      MeasuredSize(
+                        onChange: (p0) {
+                          setState(() {
+                            bgHeight = p0.height;
+                          });
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const CSNavBar(),
+                            // Banner main content
+                            ...widget.foregroundWidgets,
+                          ],
+                        ),
+                      ),
+                      ...widget.mainWidgets,
                     ],
                   ),
                 ),
-                ...widget.mainWidgets,
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

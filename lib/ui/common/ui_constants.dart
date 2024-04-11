@@ -7,7 +7,8 @@ abstract class UiConstants {
   static const white = Colors.white;
   static const offWhite = Color.fromARGB(255, 182, 182, 182);
 
-  static const double largeDisplayMinWidth = 850;
+  static const double largeDisplayMinWidth = 850.0;
+  static const double largeDisplayMaxWidth = 1400.0;
 
   static const double generalDisplayHorizontalPadding = 32.0;
 

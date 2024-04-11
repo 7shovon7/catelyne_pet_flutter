@@ -23,6 +23,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = context.width;
+    double contentWidth = deviceWidth > UiConstants.largeDisplayMaxWidth
+        ? UiConstants.largeDisplayMaxWidth
+        : deviceWidth;
     bool screenShouldShrink = deviceWidth < UiConstants.largeDisplayMinWidth;
 
     return CsScaffold(
@@ -30,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       foregroundWidgets: [
         HomeBannerForegroundContent(
           screenShouldShrink: screenShouldShrink,
-          deviceWidth: deviceWidth,
+          deviceWidth: contentWidth,
         ),
       ],
       mainWidgets: [
