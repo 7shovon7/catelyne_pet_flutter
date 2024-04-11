@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/nav_bar.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/widgets/drawer.dart';
