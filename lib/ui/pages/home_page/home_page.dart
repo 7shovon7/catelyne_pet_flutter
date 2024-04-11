@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Size childSize = Size.zero;
   double offerBannerHeight = 0;
   double totalStackHeight = 0;
   Widget bannerMainContent = Container();

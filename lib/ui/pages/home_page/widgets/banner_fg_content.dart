@@ -76,9 +76,46 @@ class HomeBannerForegroundContent extends StatelessWidget {
       ),
       SizedBox(
         width: bannerSubsectionWidth,
-        child: Image.asset(
-          'assets/images/cat-in-banner.png',
-          fit: BoxFit.fitWidth,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: bannerSubsectionWidth / 1.3,
+                height: bannerSubsectionWidth / 1.3,
+                // height: bannerSubsectionWidth,
+                decoration: BoxDecoration(
+                  color: UiConstants.offWhite,
+                  borderRadius:
+                      BorderRadius.circular(bannerSubsectionWidth / 2.0),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: bannerSubsectionWidth / 1.3,
+                height: bannerSubsectionWidth / 1.3,
+                child: Container(
+                  width: bannerSubsectionWidth / 1.5,
+                  height: bannerSubsectionWidth / 1.5,
+                  // height: bannerSubsectionWidth,
+                  decoration: BoxDecoration(
+                    color: UiConstants.white,
+                    borderRadius:
+                        BorderRadius.circular(bannerSubsectionWidth / 2.0),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/cat-in-banner.png',
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          ],
         ),
       ),
     ];
