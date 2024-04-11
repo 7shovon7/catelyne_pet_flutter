@@ -1,9 +1,8 @@
 import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/section_title_with_button.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/view_models/products/product_view_model.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/products/product_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 List<ProductViewModel> allProducts = [
   ProductViewModel(
@@ -104,33 +103,10 @@ List<ProductViewModel> allProducts = [
 ];
 
 List<Widget> homePageBestSellersSectionWidgets(BuildContext context) => [
-      const SizedBox(
-        height: 30.0,
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Best Sellers',
-              textAlign: TextAlign.left,
-              style: GoogleFonts.ibmPlexSerif(
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
-                fontSize: 36.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            OutlinedButton(
-              style: WidgetConstants.defaultOutlineButtonStyle,
-              onPressed: () {},
-              child: Padding(
-                padding: WidgetConstants.defaultButtonPadding,
-                child: Text('Explore Now'.toUpperCase()),
-              ),
-            ),
-          ],
-        ),
+      SectionTitleWithButton(
+        title: 'Best Sellers',
+        buttonText: 'Explore Now',
+        onPressed: () {},
       ),
       CsGridView(
         maxItemsPerRow: 3,
