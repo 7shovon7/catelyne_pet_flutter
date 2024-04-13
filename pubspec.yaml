@@ -1,5 +1,5 @@
 name: catelyne_pet_flutter
-description: "A new Flutter project."
+description: "A cool new web project built with flutter web for an online store for your beloved pet."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -69,10 +69,10 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo/cps_logo_180x180.png"
+  image_path: "assets/logo/cps_logo_512x512.png"
   min_sdk_android: 21
   web:
     generate: true
-    image_path: "assets/logo/cps_logo_180x180.png"
+    image_path: "assets/logo/cps_logo_512x512.png"
     background_color: "#FFFFFF"
     theme_color: "#17383E"
