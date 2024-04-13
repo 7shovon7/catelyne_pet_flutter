@@ -14,9 +14,9 @@ class CSNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceWidth = context.width;
     final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
-    final Color activeTextColor =
-        Theme.of(context).colorScheme.onPrimaryContainer;
-    final Color inActiveTextColor = Theme.of(context).colorScheme.outline;
+    final Color activeTextColor = Theme.of(context).colorScheme.onPrimary;
+    final Color inActiveTextColor =
+        Theme.of(context).colorScheme.outlineVariant;
     Widget menuItem(
       String title, {
       bool isActive = false,
@@ -94,15 +94,15 @@ class CSNavBar extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: Container(
-              height: 60.0,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: UiConstants.white,
-                ),
-                color: UiConstants.white,
-              ),
+              height: 40.0,
+              // decoration: BoxDecoration(
+              //   border: Border.all(
+              //     color: UiConstants.white,
+              //   ),
+              //   color: UiConstants.white,
+              // ),
               child: Image.asset(
-                AssetItems.logoBanner,
+                AssetItems.titleOnlyLogo,
                 fit: BoxFit.fitHeight,
               ),
             ),

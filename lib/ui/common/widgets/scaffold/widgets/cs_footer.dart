@@ -25,7 +25,7 @@ class _CsFooterState extends State<CsFooter> {
   // Future<void> _launchUrl
   @override
   Widget build(BuildContext context) {
-    final activeTextColor = Theme.of(context).colorScheme.onPrimaryContainer;
+    final activeTextColor = Theme.of(context).colorScheme.onPrimary;
 
     final titleStyle = GoogleFonts.ibmPlexSerif(
       fontSize: 18.0,

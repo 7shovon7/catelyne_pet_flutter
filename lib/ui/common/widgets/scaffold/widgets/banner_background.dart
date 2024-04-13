@@ -1,4 +1,5 @@
 import 'package:catelyne_pet_flutter/core/assets.dart';
+import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,7 +20,7 @@ class BannerBackground extends StatelessWidget {
         Container(
           width: double.infinity,
           height: height,
-          color: Theme.of(context).colorScheme.secondaryContainer,
+          color: UiConstants.primaryColor,
         ),
         SizedBox(
           height: height,
@@ -29,8 +30,6 @@ class BannerBackground extends StatelessWidget {
             child: SvgPicture.asset(
               AssetItems.pawPatternSVG,
               fit: BoxFit.cover,
-              // height: height,
-              // width: double.infinity,
             ),
           ),
         ),

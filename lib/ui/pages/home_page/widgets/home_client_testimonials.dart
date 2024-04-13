@@ -23,7 +23,7 @@ class _HomeClientTestimonialsSectionState
   double clientSectionHeight = 0;
   @override
   Widget build(BuildContext context) {
-    final activeTextColor = Theme.of(context).colorScheme.onPrimaryContainer;
+    final activeTextColor = Theme.of(context).colorScheme.onPrimary;
 
     Widget singeClientPart({
       required String imgUrl,
