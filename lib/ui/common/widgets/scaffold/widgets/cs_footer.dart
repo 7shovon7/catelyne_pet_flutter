@@ -1,5 +1,6 @@
 import 'package:catelyne_pet_flutter/core/constants.dart';
 import 'package:catelyne_pet_flutter/core/utils.dart';
+import 'package:catelyne_pet_flutter/data/constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/banner_background.dart';
 import 'package:flutter/material.dart';
@@ -48,28 +49,12 @@ class _CsFooterState extends State<CsFooter> {
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Beds (5)',
-              style: bodyStyle,
-            ),
-            Text(
-              'Carriers (1)',
-              style: bodyStyle,
-            ),
-            Text(
-              'Costumes (5)',
-              style: bodyStyle,
-            ),
-            Text(
-              'Food (3)',
-              style: bodyStyle,
-            ),
-            Text(
-              'Toys (3)',
-              style: bodyStyle,
-            ),
-          ],
+          children: DataConstants.productsSubMenuItems
+              .map((e) => Text(
+                    e,
+                    style: bodyStyle,
+                  ))
+              .toList(),
         ),
       ],
     );

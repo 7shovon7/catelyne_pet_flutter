@@ -1,6 +1,6 @@
 import 'package:catelyne_pet_flutter/core/assets.dart';
+import 'package:catelyne_pet_flutter/data/constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/utils.dart';
@@ -8,23 +8,32 @@ import 'package:get/utils.dart';
 class CSNavBar extends StatelessWidget {
   const CSNavBar({
     super.key,
+    this.activeItem,
   });
+
+  final String? activeItem;
 
   @override
   Widget build(BuildContext context) {
+    final String activeMenuItem = activeItem ?? DataConstants.menuItems[0];
     final deviceWidth = context.width;
     final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
     final Color activeTextColor = Theme.of(context).colorScheme.onPrimary;
     final Color inActiveTextColor =
         Theme.of(context).colorScheme.outlineVariant;
+
     Widget menuItem(
       String title, {
       bool isActive = false,
       void Function()? onPressed,
     }) {
       return TextButton(
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all(WidgetConstants.defaultBoxShape),
+        style: TextButton.styleFrom(
+          backgroundColor:
+              isActive ? UiConstants.accentColor.withOpacity(0.1) : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
         ),
         onPressed: onPressed ?? () {},
         child: Padding(
@@ -39,21 +48,18 @@ class CSNavBar extends StatelessWidget {
       );
     }
 
-    List<Widget> menuBarWithCart() {
+    List<Widget> menuBarWithCart({String? activeItemName}) {
+      activeItemName ??= activeMenuItem;
+      List<Widget> menuBarItems = DataConstants.menuItems
+          .map(
+            (e) => menuItem(e, isActive: e == activeItemName),
+          )
+          .toList();
       if (isFullSizedNav) {
         return [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              menuItem(
-                'Home',
-                isActive: true,
-              ),
-              menuItem('Products'),
-              menuItem('About Us'),
-              menuItem('Blog'),
-              menuItem('Contact'),
-            ],
+            children: menuBarItems,
           ),
           Icon(
             FontAwesomeIcons.basketShopping,
