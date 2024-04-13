@@ -1,6 +1,6 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/banner_background.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/banner_background.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:measured_size/measured_size.dart';

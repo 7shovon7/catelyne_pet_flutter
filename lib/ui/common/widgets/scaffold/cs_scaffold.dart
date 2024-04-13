@@ -1,7 +1,7 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/nav_bar.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/nav_bar/widgets/drawer.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/banner_background.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/nav_bar/nav_bar.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/nav_bar/widgets/drawer.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/banner_background.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:measured_size/measured_size.dart';

@@ -1,7 +1,7 @@
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/banner_background.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart';
+import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/cs_footer.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_fg_content.dart';
@@ -15,7 +15,6 @@ import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/products/product_ca
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:measured_size/measured_size.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -132,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             const SizedBox(height: 10.0),
-                            Text(
+                            const Text(
                               'Enter your email address below to subscribe to our newsletter.',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -181,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(
                               height: 20.0,
                             ),
-                            Text('Your privacy is our policy.'),
+                            const Text('Your privacy is our policy.'),
                           ],
                         ),
                       ),
@@ -223,157 +222,6 @@ class _HomePageState extends State<HomePage> {
         ),
         // Footer
         CsFooter(contentWidth: contentWidth),
-      ],
-    );
-  }
-}
-
-class CsFooter extends StatefulWidget {
-  const CsFooter({
-    super.key,
-    required this.contentWidth,
-  });
-
-  final double contentWidth;
-
-  @override
-  State<CsFooter> createState() => _CsFooterState();
-}
-
-class _CsFooterState extends State<CsFooter> {
-  double sectionHeight = 0;
-  @override
-  Widget build(BuildContext context) {
-    final titleStyle = GoogleFonts.ibmPlexSerif(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-      color: UiConstants.white,
-    );
-    const bodyStyle = TextStyle(
-      fontSize: 16.0,
-      color: UiConstants.white,
-    );
-
-    Widget categoriesWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Categories',
-          style: titleStyle,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          'Beds (5)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Carriers (1)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Costumes (5)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Food (3)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Toys (3)',
-          style: bodyStyle,
-        ),
-      ],
-    );
-
-    Widget contactsWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Contacts',
-          style: titleStyle,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          'Phone: (+88) 01675 123 456',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Email: catelynshop@gmail.com',
-          style: bodyStyle,
-        ),
-      ],
-    );
-
-    Widget openningHoursWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Opening Hours',
-          style: titleStyle,
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          'Mon-Fri: 10am - 8pm',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Sat: 10am - 4pm',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Sun: 10am - 6pm',
-          style: bodyStyle,
-        ),
-      ],
-    );
-
-    return Stack(
-      children: [
-        BannerBackground(height: sectionHeight),
-        MeasuredSize(
-          onChange: (size) {
-            setState(() {
-              sectionHeight = size.height;
-            });
-          },
-          child: Center(
-            child: SizedBox(
-              width: widget.contentWidth -
-                  UiConstants.generalDisplayHorizontalPadding * 2,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 70.0,
-                  ),
-                  widget.contentWidth > UiConstants.smallDisplayMaxWidth
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            categoriesWidget,
-                            contactsWidget,
-                            openningHoursWidget,
-                          ],
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            categoriesWidget,
-                            const SizedBox(height: 40.0),
-                            contactsWidget,
-                            const SizedBox(height: 40.0),
-                            openningHoursWidget,
-                          ],
-                        ),
-                  const SizedBox(height: 40.0),
-                ],
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }
