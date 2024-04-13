@@ -69,10 +69,10 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo/cps_logo.png"
+  image_path: "assets/logo/cps_logo_180x180.png"
   min_sdk_android: 21
   web:
     generate: true
-    image_path: "assets/logo/cps_logo.png"
+    image_path: "assets/logo/cps_logo_180x180.png"
     background_color: "#FFFFFF"
     theme_color: "#17383E"

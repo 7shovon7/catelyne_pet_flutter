@@ -1,9 +1,9 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/utils.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CSNavBar extends StatelessWidget {
   const CSNavBar({
@@ -89,12 +89,14 @@ class CSNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            'Catelyn Store',
-            style: GoogleFonts.ibmPlexSerif(
-              color: textColor,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {},
+            child: Container(
+              height: 30.0,
+              child: Image.asset(
+                AssetItems.logo,
+                fit: BoxFit.scaleDown,
+              ),
             ),
           ),
           ...menuBarWithCart(),
