@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Catelyne Pet Shop',
+      title: 'Catelyn Pet Shop',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: lightColorScheme,

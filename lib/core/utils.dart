@@ -8,7 +8,7 @@ class CoreUtils {
     keywords ??= CoreConstants.seoKeywords;
     MetaSEO meta = MetaSEO();
     meta.author(author: 'Mahmudur Rahman Shovon');
-    meta.description(description: CoreConstants.companyDescriptionSmall);
+    // meta.description(description: CoreConstants.companyDescriptionSmall);
     meta.keywords(keywords: keywords.join(', '));
   }
 
