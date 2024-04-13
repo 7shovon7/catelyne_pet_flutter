@@ -1,7 +1,7 @@
 {
     "name": "Catelyn Pet Shop",
     "short_name": "CPS",
-    "start_url": "./catelyn-pet-shop/",
+    "start_url": ".",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#17383E",

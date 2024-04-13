@@ -1,7 +1,9 @@
+import 'package:catelyne_pet_flutter/core/utils.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/nav_bar/nav_bar.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/nav_bar/widgets/drawer.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/banner_background.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 import 'package:measured_size/measured_size.dart';
@@ -12,6 +14,7 @@ class CsScaffold extends StatefulWidget {
     this.additionalBgHeight = 0.0,
     required this.foregroundWidgets,
     required this.mainWidgets,
+    this.seoKeywords,
   });
 
   // if extra height is required
@@ -20,6 +23,8 @@ class CsScaffold extends StatefulWidget {
   final List<Widget> foregroundWidgets;
   // Main page body widgets which are used regardless of the background
   final List<Widget> mainWidgets;
+  // If want to add new sets of SEO Keywords
+  final List<String>? seoKeywords;
 
   @override
   State<CsScaffold> createState() => _CsScaffoldState();
@@ -33,6 +38,9 @@ class _CsScaffoldState extends State<CsScaffold> {
     double contentWidth = deviceWidth > UiConstants.largeDisplayMaxWidth
         ? UiConstants.largeDisplayMaxWidth
         : deviceWidth;
+    if (kIsWeb) {
+      CoreUtils.applyGenericMetaSEO(keywords: widget.seoKeywords);
+    }
     return Scaffold(
       endDrawer: const CSDrawer(),
       body: SingleChildScrollView(

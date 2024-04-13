@@ -2,7 +2,7 @@ name: catelyne_pet_flutter
 description: "A cool new web project built with flutter web for an online store for your beloved pet."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
@@ -19,6 +19,8 @@ dependencies:
   measured_size: ^1.0.0
   flutter_svg_provider: ^1.0.7
   url_launcher: ^6.2.6
+  meta_seo: ^3.0.9
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
