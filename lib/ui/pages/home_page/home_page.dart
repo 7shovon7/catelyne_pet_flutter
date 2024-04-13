@@ -2,11 +2,11 @@ import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/cs_footer.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_fg_content.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_product_categories.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/home_client_testimonials.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/news_letter.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/offer_message_banner.dart';
 import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/section_title_with_button.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/view_models/blogs/blog_view_model.dart';
@@ -14,7 +14,6 @@ import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/blogs/blog_card.dar
 import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/products/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -96,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               SectionTitleWithButton(
-                title: 'Popular articles about pets',
+                title: 'Popular articles',
                 buttonText: 'View All',
                 displayWidth: contentWidth,
                 onPressed: () {},
@@ -105,102 +104,8 @@ class _HomePageState extends State<HomePage> {
                 maxItemsPerRow: 4,
                 children: blogs.map((e) => BlogCard(blog: e)).toList(),
               ),
-              Stack(
-                children: [
-                  Column(
-                    children: [
-                      const SizedBox(height: 150),
-                      Container(
-                        padding: const EdgeInsets.only(
-                          left: 60.0,
-                          top: 60.0,
-                          bottom: 60.0,
-                        ),
-                        color: Theme.of(context).colorScheme.secondaryContainer,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Newsletter Updates',
-                              style: GoogleFonts.ibmPlexSerif(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .onTertiaryContainer,
-                                fontSize: 36.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 10.0),
-                            const Text(
-                              'Enter your email address below to subscribe to our newsletter.',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 20.0),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Expanded(
-                                  flex: 10,
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: UiConstants.white,
-                                      border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.zero),
-                                        borderSide: BorderSide.none,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: ElevatedButton(
-                                    style: WidgetConstants.defaultButtonStyle,
-                                    onPressed: () {},
-                                    child: const Padding(
-                                      padding:
-                                          WidgetConstants.defaultButtonPadding,
-                                      child: Text('Subscribe'),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 16,
-                                  child: Container(),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20.0,
-                            ),
-                            const Text('Your privacy is our policy.'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: SizedBox(
-                        height: 370,
-                        child: Image.asset(
-                          'assets/images/newsletter_dog.png',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              NewsLetterSectionInHomePage(
+                screenShouldShrink: screenShouldShrink,
               ),
               const SizedBox(height: 80.0),
               SectionTitleWithButton(

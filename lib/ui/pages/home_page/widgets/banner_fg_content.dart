@@ -74,6 +74,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
           ],
         ),
       ),
+      if (screenShouldShrink) const SizedBox(height: 30),
       SizedBox(
         width: bannerSubsectionWidth,
         child: Stack(

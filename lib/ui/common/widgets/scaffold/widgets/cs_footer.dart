@@ -76,13 +76,19 @@ class _CsFooterState extends State<CsFooter> {
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        const Text(
-          'Phone: (+88) 01675 123 456',
-          style: bodyStyle,
+        InkWell(
+          onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
+          child: const Text(
+            'Phone: ${CoreConstants.companyPhone}',
+            style: bodyStyle,
+          ),
         ),
-        const Text(
-          'Email: catelynshop@gmail.com',
-          style: bodyStyle,
+        InkWell(
+          onTap: () => CoreUtils.mail(CoreConstants.companyMail),
+          child: const Text(
+            'Email: ${CoreConstants.companyMail}',
+            style: bodyStyle,
+          ),
         ),
       ],
     );

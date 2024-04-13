@@ -19,7 +19,9 @@ class SectionTitleWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final children = [
+    final bool screenShouldShrink =
+        displayWidth <= UiConstants.smallDisplayMaxWidth;
+    List<Widget> children = [
       Text(
         title,
         textAlign: TextAlign.left,
@@ -29,6 +31,7 @@ class SectionTitleWithButton extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
+      if (screenShouldShrink) const SizedBox(height: 10.0),
       OutlinedButton(
         style: WidgetConstants.defaultOutlineButtonStyle,
         onPressed: onPressed,
@@ -45,7 +48,7 @@ class SectionTitleWithButton extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: displayWidth <= UiConstants.smallDisplayMaxWidth
+          child: screenShouldShrink
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: children,
