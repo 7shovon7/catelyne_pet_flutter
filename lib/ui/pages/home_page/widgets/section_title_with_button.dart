@@ -24,7 +24,7 @@ class SectionTitleWithButton extends StatelessWidget {
     List<Widget> children = [
       Text(
         title,
-        textAlign: TextAlign.left,
+        textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
         style: GoogleFonts.ibmPlexSerif(
           color: Theme.of(context).colorScheme.onPrimaryContainer,
           fontSize: 36.0,
