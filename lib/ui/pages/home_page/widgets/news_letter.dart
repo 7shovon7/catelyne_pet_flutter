@@ -97,7 +97,7 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
                 : CrossAxisAlignment.start,
             children: [
               Text(
-                'Newsletter Updates',
+                'Get new offers!',
                 textAlign:
                     screenShouldShrink ? TextAlign.center : TextAlign.left,
                 style: GoogleFonts.ibmPlexSerif(

@@ -88,7 +88,7 @@ class _HomeClientTestimonialsSectionState
                 children: [
                   const SizedBox(height: 80.0),
                   Text(
-                    'What pets say about our shop',
+                    'What pet parents say about our shop',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: activeTextColor,
@@ -96,7 +96,7 @@ class _HomeClientTestimonialsSectionState
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    'Clients Testimonials',
+                    'Parent\'s Testimonials',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.ibmPlexSerif(
                       fontSize: 36,
@@ -115,21 +115,21 @@ class _HomeClientTestimonialsSectionState
                             'https://th.bing.com/th/id/OIP.rva2Zilgpv7RqADazS_F2wHaJ4?rs=1&pid=ImgDetMain',
                         description:
                             'Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh mollis. Nulla porta risus id neque.',
-                        address: 'Glen Sparkle, MIAMI',
+                        address: 'Savar, Dhaka',
                       ),
                       singeClientPart(
                         imgUrl:
                             'https://th.bing.com/th/id/OIP.UKH4Z2nytiBxnEZwikPWSgAAAA?rs=1&pid=ImgDetMain',
                         description:
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, tortor eget condimentum tristique.',
-                        address: 'Sunnyvale, California',
+                        address: 'Mirpur, Dhaka',
                       ),
                       singeClientPart(
                         imgUrl:
                             'https://th.bing.com/th/id/OIP.ke4Lnw4bNdDfLbBMMcHLfQAAAA?w=400&h=400&rs=1&pid=ImgDetMain',
                         description:
                             'Aliquam erat volutpat. Nullam rhoncus magna non ante luctus, id maximus purus convallis.',
-                        address: 'New York City, New York',
+                        address: 'Uttara Dhaka',
                       ),
                     ],
                   ),

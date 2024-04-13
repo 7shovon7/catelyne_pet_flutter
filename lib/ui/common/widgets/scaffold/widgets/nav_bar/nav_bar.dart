@@ -65,9 +65,12 @@ class CSNavBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                FontAwesomeIcons.basketShopping,
-                color: activeTextColor,
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  FontAwesomeIcons.basketShopping,
+                  color: activeTextColor,
+                ),
               ),
               const SizedBox(
                 width: 30.0,
@@ -93,14 +96,8 @@ class CSNavBar extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {},
-            child: Container(
-              height: 40.0,
-              // decoration: BoxDecoration(
-              //   border: Border.all(
-              //     color: UiConstants.white,
-              //   ),
-              //   color: UiConstants.white,
-              // ),
+            child: SizedBox(
+              height: 25.0,
               child: Image.asset(
                 AssetItems.titleOnlyLogo,
                 fit: BoxFit.fitHeight,

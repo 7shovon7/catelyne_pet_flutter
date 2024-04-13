@@ -24,6 +24,9 @@ class HomeBannerForegroundContent extends StatelessWidget {
     const SizedBox contentSpacingInBanner = SizedBox(
       height: 26,
     );
+    const SizedBox contentSpacingInBannerSm = SizedBox(
+      height: 14,
+    );
 
     List<Widget> bannerSubsections = [
       SizedBox(
@@ -35,16 +38,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'WE HAVE THE BEST PRODUCTS',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: activeTextColor,
-              ),
-            ),
-            contentSpacingInBanner,
-            Text(
-              'Your Pet\'s\nFavourite Place',
+              'Our shop is what your pet wants!',
               textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
               style: GoogleFonts.ibmPlexSerif(
                 fontSize: 54,
@@ -55,7 +49,17 @@ class HomeBannerForegroundContent extends StatelessWidget {
             ),
             contentSpacingInBanner,
             Text(
-              'In consequat, quam id sodales hendrerit, eros mi lacinia risus neque tristique augueproin tempus urna congue. elementum.',
+              '5% of your purchase goes to feeding stray animals',
+              textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: activeTextColor,
+              ),
+            ),
+            contentSpacingInBannerSm,
+            Text(
+              'so what are you waiting for!!? Get quality product for your furry friend along with helping the poor souls.',
               textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
               overflow: TextOverflow.ellipsis,
               maxLines: 5,

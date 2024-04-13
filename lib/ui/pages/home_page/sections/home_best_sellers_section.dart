@@ -106,7 +106,7 @@ List<Widget> homePageBestSellersSectionWidgets(
         BuildContext context, double contentWidth) =>
     [
       SectionTitleWithButton(
-        title: 'Best Sellers',
+        title: 'Furries Best Choice'.toUpperCase(),
         buttonText: 'Explore Now',
         onPressed: () {},
         displayWidth: contentWidth,

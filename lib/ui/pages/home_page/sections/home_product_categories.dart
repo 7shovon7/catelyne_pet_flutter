@@ -65,7 +65,7 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
       ),
     ),
     const Text(
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, incididunt ut labore et dolore magna.',
+      'Your cat deserves the bests!! From food to ball, we have it all!!! explore our collection of best Cat Supplies at Unbeatable Prices!',
       textAlign: TextAlign.center,
     ),
     CsGridView(
@@ -79,11 +79,11 @@ List<Widget> homePageProductCategoriesSectionWidgets(BuildContext context) {
         ),
         categoryCard(
           iconData: FontAwesomeIcons.couch,
-          title: 'Beds',
+          title: 'Litter',
         ),
         categoryCard(
           iconData: FontAwesomeIcons.babyCarriage,
-          title: 'Carriers',
+          title: 'Health & Grooming',
         ),
         categoryCard(
           iconData: FontAwesomeIcons.volleyball,

@@ -35,7 +35,7 @@ class HomepageOfferMessageBanner extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Receive 20% OFF your first order of our self-made pet food!',
+                'Get 10% OFF on your first order!',
                 maxLines: 5,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -44,7 +44,7 @@ class HomepageOfferMessageBanner extends StatelessWidget {
                 ),
               ),
               Text(
-                'In consequat, quam id sodales hendrerit, eros mi lacinia risus neque.',
+                'free delivery on your first purchase!',
                 maxLines: 5,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -65,7 +65,7 @@ class HomepageOfferMessageBanner extends StatelessWidget {
             onPressed: () {},
             child: const Padding(
               padding: WidgetConstants.defaultButtonPadding,
-              child: Text('WOOF WOOF'),
+              child: Text('Meow Meow'),
             ),
           ),
         ),
