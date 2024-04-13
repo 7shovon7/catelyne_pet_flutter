@@ -25,14 +25,16 @@ class _CsFooterState extends State<CsFooter> {
   // Future<void> _launchUrl
   @override
   Widget build(BuildContext context) {
+    final activeTextColor = Theme.of(context).colorScheme.onPrimaryContainer;
+
     final titleStyle = GoogleFonts.ibmPlexSerif(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: UiConstants.white,
+      color: activeTextColor,
     );
-    const bodyStyle = TextStyle(
+    final bodyStyle = TextStyle(
       fontSize: 16.0,
-      color: UiConstants.white,
+      color: activeTextColor,
     );
 
     Widget categoriesWidget = Column(
@@ -44,23 +46,23 @@ class _CsFooterState extends State<CsFooter> {
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        const Text(
+        Text(
           'Beds (5)',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Carriers (1)',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Costumes (5)',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Food (3)',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Toys (3)',
           style: bodyStyle,
         ),
@@ -78,14 +80,14 @@ class _CsFooterState extends State<CsFooter> {
         const SizedBox(height: 10),
         InkWell(
           onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
-          child: const Text(
+          child: Text(
             'Phone: ${CoreConstants.companyPhone}',
             style: bodyStyle,
           ),
         ),
         InkWell(
           onTap: () => CoreUtils.mail(CoreConstants.companyMail),
-          child: const Text(
+          child: Text(
             'Email: ${CoreConstants.companyMail}',
             style: bodyStyle,
           ),
@@ -102,25 +104,25 @@ class _CsFooterState extends State<CsFooter> {
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        const Text(
+        Text(
           'Mon-Fri: 10am - 8pm',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Sat: 10am - 4pm',
           style: bodyStyle,
         ),
-        const Text(
+        Text(
           'Sun: 10am - 6pm',
           style: bodyStyle,
         ),
       ],
     );
 
-    const divider = Divider(
+    final divider = Divider(
       height: 2,
       thickness: 0.2,
-      color: UiConstants.offWhite,
+      color: activeTextColor,
     );
 
     Widget smIcon({required IconData iconData, required String url}) {
@@ -131,13 +133,13 @@ class _CsFooterState extends State<CsFooter> {
           margin: const EdgeInsets.symmetric(horizontal: 20.0),
           decoration: BoxDecoration(
             border: Border.all(
-              color: UiConstants.offWhite,
+              color: activeTextColor,
             ),
             borderRadius: BorderRadius.circular(32),
           ),
           child: Icon(
             iconData,
-            color: UiConstants.white,
+            color: activeTextColor,
             size: 26.0,
           ),
         ),
@@ -171,8 +173,8 @@ class _CsFooterState extends State<CsFooter> {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Text(
           'Copyright © ${DateTime.now().year} ${CoreConstants.companyName}',
-          style: const TextStyle(
-            color: UiConstants.white,
+          style: TextStyle(
+            color: activeTextColor,
           ),
         ),
       ),

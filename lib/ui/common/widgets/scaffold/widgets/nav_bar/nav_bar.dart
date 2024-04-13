@@ -14,7 +14,9 @@ class CSNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceWidth = context.width;
     final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
-    const textColor = Colors.white;
+    final Color activeTextColor =
+        Theme.of(context).colorScheme.onPrimaryContainer;
+    final Color inActiveTextColor = Theme.of(context).colorScheme.outline;
     Widget menuItem(
       String title, {
       bool isActive = false,
@@ -30,7 +32,7 @@ class CSNavBar extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              color: isActive ? textColor : UiConstants.offWhite,
+              color: isActive ? activeTextColor : inActiveTextColor,
             ),
           ),
         ),
@@ -53,9 +55,9 @@ class CSNavBar extends StatelessWidget {
               menuItem('Contact'),
             ],
           ),
-          const Icon(
+          Icon(
             FontAwesomeIcons.basketShopping,
-            color: textColor,
+            color: activeTextColor,
           ),
         ];
       } else {
@@ -63,18 +65,18 @@ class CSNavBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
+              Icon(
                 FontAwesomeIcons.basketShopping,
-                color: textColor,
+                color: activeTextColor,
               ),
               const SizedBox(
                 width: 30.0,
               ),
               IconButton(
                 onPressed: () => Scaffold.of(context).openEndDrawer(),
-                icon: const Icon(
+                icon: Icon(
                   FontAwesomeIcons.bars,
-                  color: textColor,
+                  color: activeTextColor,
                 ),
               ),
             ],
@@ -92,10 +94,16 @@ class CSNavBar extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: Container(
-              height: 30.0,
+              height: 60.0,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: UiConstants.white,
+                ),
+                color: UiConstants.white,
+              ),
               child: Image.asset(
-                AssetItems.logo,
-                fit: BoxFit.scaleDown,
+                AssetItems.logoBanner,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),

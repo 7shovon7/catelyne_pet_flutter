@@ -16,6 +16,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final activeTextColor = Theme.of(context).colorScheme.onPrimaryContainer;
     double bannerSubsectionWidth = screenShouldShrink
         ? deviceWidth - UiConstants.generalDisplayHorizontalPadding * 2
         : deviceWidth / 2 - UiConstants.generalDisplayHorizontalPadding * 2;
@@ -33,12 +34,12 @@ class HomeBannerForegroundContent extends StatelessWidget {
               : CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
+            Text(
               'WE HAVE THE BEST PRODUCTS',
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: activeTextColor,
               ),
             ),
             contentSpacingInBanner,
@@ -48,7 +49,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
               style: GoogleFonts.ibmPlexSerif(
                 fontSize: 54,
                 height: 1.1,
-                color: Colors.white,
+                color: activeTextColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -58,9 +59,9 @@ class HomeBannerForegroundContent extends StatelessWidget {
               textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
               overflow: TextOverflow.ellipsis,
               maxLines: 5,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: activeTextColor,
               ),
             ),
             contentSpacingInBanner,
@@ -87,7 +88,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
                 height: bannerSubsectionWidth / 1.3,
                 // height: bannerSubsectionWidth,
                 decoration: BoxDecoration(
-                  color: UiConstants.white.withOpacity(0.1),
+                  color: UiConstants.white.withOpacity(0.3),
                   borderRadius:
                       BorderRadius.circular(bannerSubsectionWidth / 2.0),
                 ),
@@ -104,7 +105,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
                     height: bannerSubsectionWidth / 1.47,
                     // height: bannerSubsectionWidth,
                     decoration: BoxDecoration(
-                      color: UiConstants.white.withOpacity(0.2),
+                      color: UiConstants.white.withOpacity(0.4),
                       borderRadius:
                           BorderRadius.circular(bannerSubsectionWidth / 2.0),
                     ),

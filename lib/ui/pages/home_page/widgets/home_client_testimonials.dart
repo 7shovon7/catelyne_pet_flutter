@@ -23,6 +23,8 @@ class _HomeClientTestimonialsSectionState
   double clientSectionHeight = 0;
   @override
   Widget build(BuildContext context) {
+    final activeTextColor = Theme.of(context).colorScheme.onPrimaryContainer;
+
     Widget singeClientPart({
       required String imgUrl,
       required String description,
@@ -52,8 +54,8 @@ class _HomeClientTestimonialsSectionState
           Text(
             description,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: UiConstants.white,
+            style: TextStyle(
+              color: activeTextColor,
             ),
           ),
           spacer,
@@ -85,10 +87,10 @@ class _HomeClientTestimonialsSectionState
               child: Column(
                 children: [
                   const SizedBox(height: 80.0),
-                  const Text(
+                  Text(
                     'What pets say about our shop',
                     style: TextStyle(
-                      color: UiConstants.white,
+                      color: activeTextColor,
                     ),
                   ),
                   const SizedBox(height: 10.0),
@@ -97,7 +99,7 @@ class _HomeClientTestimonialsSectionState
                     style: GoogleFonts.ibmPlexSerif(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
-                      color: UiConstants.white,
+                      color: activeTextColor,
                     ),
                   ),
                   const SizedBox(height: 60.0),
