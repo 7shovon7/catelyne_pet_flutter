@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +134,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Image.asset(
-                'assets/images/cat-in-banner.png',
+                AssetItems.catInBannerImg,
                 fit: BoxFit.fitWidth,
               ),
             ),

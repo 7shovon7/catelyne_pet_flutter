@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
@@ -139,7 +140,7 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
                   child: SizedBox(
                     height: 370,
                     child: Image.asset(
-                      'assets/images/newsletter_dog.png',
+                      AssetItems.newsLetterDogImg,
                       fit: BoxFit.contain,
                     ),
                   ),
