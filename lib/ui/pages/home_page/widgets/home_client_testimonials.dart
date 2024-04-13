@@ -89,6 +89,7 @@ class _HomeClientTestimonialsSectionState
                   const SizedBox(height: 80.0),
                   Text(
                     'What pets say about our shop',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: activeTextColor,
                     ),
@@ -96,6 +97,7 @@ class _HomeClientTestimonialsSectionState
                   const SizedBox(height: 10.0),
                   Text(
                     'Clients Testimonials',
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.ibmPlexSerif(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
