@@ -98,6 +98,8 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
             children: [
               Text(
                 'Newsletter Updates',
+                textAlign:
+                    screenShouldShrink ? TextAlign.center : TextAlign.left,
                 style: GoogleFonts.ibmPlexSerif(
                   color: Theme.of(context).colorScheme.onTertiaryContainer,
                   fontSize: 36.0,

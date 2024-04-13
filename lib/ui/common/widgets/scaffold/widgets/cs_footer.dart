@@ -38,83 +38,98 @@ class _CsFooterState extends State<CsFooter> {
     );
 
     Widget categoriesWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Categories',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        Text(
-          'Beds (5)',
-          style: bodyStyle,
-        ),
-        Text(
-          'Carriers (1)',
-          style: bodyStyle,
-        ),
-        Text(
-          'Costumes (5)',
-          style: bodyStyle,
-        ),
-        Text(
-          'Food (3)',
-          style: bodyStyle,
-        ),
-        Text(
-          'Toys (3)',
-          style: bodyStyle,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Beds (5)',
+              style: bodyStyle,
+            ),
+            Text(
+              'Carriers (1)',
+              style: bodyStyle,
+            ),
+            Text(
+              'Costumes (5)',
+              style: bodyStyle,
+            ),
+            Text(
+              'Food (3)',
+              style: bodyStyle,
+            ),
+            Text(
+              'Toys (3)',
+              style: bodyStyle,
+            ),
+          ],
         ),
       ],
     );
 
     Widget contactsWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Contacts',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        InkWell(
-          onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
-          child: Text(
-            'Phone: ${CoreConstants.companyPhone}',
-            style: bodyStyle,
-          ),
-        ),
-        InkWell(
-          onTap: () => CoreUtils.mail(CoreConstants.companyMail),
-          child: Text(
-            'Email: ${CoreConstants.companyMail}',
-            style: bodyStyle,
-          ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
+              child: Text(
+                'Phone: ${CoreConstants.companyPhone}',
+                style: bodyStyle,
+              ),
+            ),
+            InkWell(
+              onTap: () => CoreUtils.mail(CoreConstants.companyMail),
+              child: Text(
+                'Email: ${CoreConstants.companyMail}',
+                style: bodyStyle,
+              ),
+            ),
+          ],
         ),
       ],
     );
 
     Widget openningHoursWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Opening Hours',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        Text(
-          'Mon-Fri: 10am - 8pm',
-          style: bodyStyle,
-        ),
-        Text(
-          'Sat: 10am - 4pm',
-          style: bodyStyle,
-        ),
-        Text(
-          'Sun: 10am - 6pm',
-          style: bodyStyle,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Mon-Fri: 10am - 8pm',
+              style: bodyStyle,
+            ),
+            Text(
+              'Sat: 10am - 4pm',
+              style: bodyStyle,
+            ),
+            Text(
+              'Sun: 10am - 6pm',
+              style: bodyStyle,
+            ),
+          ],
         ),
       ],
     );
