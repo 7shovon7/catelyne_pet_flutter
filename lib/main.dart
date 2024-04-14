@@ -1,5 +1,5 @@
 // import 'dart:html' as html;
-import 'package:catelyne_pet_flutter/firebase_options.dart';
+import 'package:catelyne_pet_flutter/data/firebase/firebase_options.dart';
 import 'package:catelyne_pet_flutter/ui/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';

@@ -1,28 +1,31 @@
+import 'package:catelyne_pet_flutter/features/products/view_models.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/grid_view_builder.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/cs_scaffold.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/cs_footer.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_best_sellers_section.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/banner_fg_content.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/sections/home_product_categories.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/home_client_testimonials.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/news_letter.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/offer_message_banner.dart';
-import 'package:catelyne_pet_flutter/ui/pages/home_page/widgets/section_title_with_button.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/controllers/home_page_controller.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/sections/home_best_sellers_section.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/widgets/banner_fg_content.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/sections/home_product_categories.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/widgets/home_client_testimonials.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/widgets/news_letter.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/widgets/offer_message_banner.dart';
+import 'package:catelyne_pet_flutter/ui/pages/home_page/views/widgets/section_title_with_button.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/view_models/blogs/blog_view_model.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/blogs/blog_card.dart';
 import 'package:catelyne_pet_flutter/ui/pages/shared/widgets/products/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/utils.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   double offerBannerHeight = 0;
   double totalStackHeight = 0;
   double clientSectionHeigh = 0;
@@ -35,6 +38,8 @@ class _HomePageState extends State<HomePage> {
         ? UiConstants.largeDisplayMaxWidth
         : deviceWidth;
     bool screenShouldShrink = deviceWidth < UiConstants.largeDisplayMinWidth;
+
+    final dataController = ref.watch(homePageController);
 
     List<BlogViewModel> blogs = [
       BlogViewModel(
@@ -85,7 +90,11 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ...homePageProductCategoriesSectionWidgets(context),
-              ...homePageBestSellersSectionWidgets(context, contentWidth),
+              ...homePageBestSellersSectionWidgets(
+                context,
+                contentWidth,
+                dataController,
+              ),
             ],
           ),
         ),
@@ -114,13 +123,31 @@ class _HomePageState extends State<HomePage> {
                 displayWidth: contentWidth,
                 onPressed: () {},
               ),
-              CsGridView(
-                maxItemsPerRow: 3,
-                rowGap: 20.0,
-                children: List.generate(
-                  3,
-                  (index) => CsProductCard(product: allProducts[index]),
-                ),
+              FutureBuilder(
+                future: dataController.getProducts(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<ProductViewModel> allProducts = snapshot.data ?? [];
+                    if (allProducts.isEmpty) {
+                      return const Center(
+                        child: Text('No Products Found!'),
+                      );
+                    } else {
+                      return CsGridView(
+                        maxItemsPerRow: 3,
+                        rowGap: 20.0,
+                        children: List.generate(
+                          allProducts.length,
+                          (index) => CsProductCard(product: allProducts[index]),
+                        ),
+                      );
+                    }
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
               ),
             ],
           ),
