@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "703500566858",
+    "project_id": "catelyn-pet-shop",
+    "storage_bucket": "catelyn-pet-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703500566858:android:b1177ff18d5d252b2901b3",
+        "android_client_info": {
+          "package_name": "info.shovon.catelyne_pet_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALP4riHY2Ugl91VnhQvgu2thKy3fSfcSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
