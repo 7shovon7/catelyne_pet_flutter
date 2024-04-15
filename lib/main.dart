@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
-    MetaSEO().config();
+    await MetaSEO().config();
   }
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
