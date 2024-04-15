@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +97,9 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
                 : CrossAxisAlignment.start,
             children: [
               Text(
-                'Newsletter Updates',
+                'Get new offers!',
+                textAlign:
+                    screenShouldShrink ? TextAlign.center : TextAlign.left,
                 style: GoogleFonts.ibmPlexSerif(
                   color: Theme.of(context).colorScheme.onTertiaryContainer,
                   fontSize: 36.0,
@@ -104,9 +107,11 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10.0),
-              const Text(
+              Text(
                 'Enter your email address below to subscribe to our newsletter.',
-                style: TextStyle(
+                textAlign:
+                    screenShouldShrink ? TextAlign.center : TextAlign.left,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -139,7 +144,7 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
                   child: SizedBox(
                     height: 370,
                     child: Image.asset(
-                      'assets/images/newsletter_dog.png',
+                      AssetItems.newsLetterDogImg,
                       fit: BoxFit.contain,
                     ),
                   ),

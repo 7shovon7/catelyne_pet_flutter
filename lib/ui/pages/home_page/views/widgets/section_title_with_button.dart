@@ -21,6 +21,7 @@ class SectionTitleWithButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool screenShouldShrink =
         displayWidth <= UiConstants.smallDisplayMaxWidth;
+
     List<Widget> children = [
       Text(
         title,

@@ -1,28 +1,39 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
+import 'package:catelyne_pet_flutter/data/constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
-import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/utils.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CSNavBar extends StatelessWidget {
   const CSNavBar({
     super.key,
+    this.activeItem,
   });
+
+  final String? activeItem;
 
   @override
   Widget build(BuildContext context) {
+    final String activeMenuItem = activeItem ?? DataConstants.menuItems[0];
     final deviceWidth = context.width;
     final isFullSizedNav = deviceWidth >= UiConstants.largeDisplayMinWidth;
-    const textColor = Colors.white;
+    final Color activeTextColor = Theme.of(context).colorScheme.onPrimary;
+    final Color inActiveTextColor =
+        Theme.of(context).colorScheme.outlineVariant;
+
     Widget menuItem(
       String title, {
       bool isActive = false,
       void Function()? onPressed,
     }) {
       return TextButton(
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all(WidgetConstants.defaultBoxShape),
+        style: TextButton.styleFrom(
+          backgroundColor:
+              isActive ? UiConstants.accentColor.withOpacity(0.1) : null,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
         ),
         onPressed: onPressed ?? () {},
         child: Padding(
@@ -30,32 +41,29 @@ class CSNavBar extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              color: isActive ? textColor : UiConstants.offWhite,
+              color: isActive ? activeTextColor : inActiveTextColor,
             ),
           ),
         ),
       );
     }
 
-    List<Widget> menuBarWithCart() {
+    List<Widget> menuBarWithCart({String? activeItemName}) {
+      activeItemName ??= activeMenuItem;
+      List<Widget> menuBarItems = DataConstants.menuItems
+          .map(
+            (e) => menuItem(e, isActive: e == activeItemName),
+          )
+          .toList();
       if (isFullSizedNav) {
         return [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              menuItem(
-                'Home',
-                isActive: true,
-              ),
-              menuItem('Products'),
-              menuItem('About Us'),
-              menuItem('Blog'),
-              menuItem('Contact'),
-            ],
+            children: menuBarItems,
           ),
-          const Icon(
+          Icon(
             FontAwesomeIcons.basketShopping,
-            color: textColor,
+            color: activeTextColor,
           ),
         ];
       } else {
@@ -63,18 +71,21 @@ class CSNavBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                FontAwesomeIcons.basketShopping,
-                color: textColor,
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  FontAwesomeIcons.basketShopping,
+                  color: activeTextColor,
+                ),
               ),
               const SizedBox(
                 width: 30.0,
               ),
               IconButton(
                 onPressed: () => Scaffold.of(context).openEndDrawer(),
-                icon: const Icon(
+                icon: Icon(
                   FontAwesomeIcons.bars,
-                  color: textColor,
+                  color: activeTextColor,
                 ),
               ),
             ],
@@ -89,12 +100,14 @@ class CSNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            'Catelyn Store',
-            style: GoogleFonts.ibmPlexSerif(
-              color: textColor,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {},
+            child: SizedBox(
+              height: 25.0,
+              child: Image.asset(
+                AssetItems.titleOnlyLogo,
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
           ...menuBarWithCart(),

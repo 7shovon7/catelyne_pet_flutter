@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/widget_constants.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,16 @@ class HomeBannerForegroundContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final activeTextColor = Theme.of(context).colorScheme.onPrimary;
     double bannerSubsectionWidth = screenShouldShrink
         ? deviceWidth - UiConstants.generalDisplayHorizontalPadding * 2
         : deviceWidth / 2 - UiConstants.generalDisplayHorizontalPadding * 2;
 
     const SizedBox contentSpacingInBanner = SizedBox(
       height: 26,
+    );
+    const SizedBox contentSpacingInBannerSm = SizedBox(
+      height: 14,
     );
 
     List<Widget> bannerSubsections = [
@@ -32,34 +37,35 @@ class HomeBannerForegroundContent extends StatelessWidget {
               : CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'WE HAVE THE BEST PRODUCTS',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            contentSpacingInBanner,
             Text(
-              'Your Pet\'s\nFavourite Place',
+              'Our shop is what your pet wants!',
               textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
               style: GoogleFonts.ibmPlexSerif(
                 fontSize: 54,
                 height: 1.1,
-                color: Colors.white,
+                color: activeTextColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
             contentSpacingInBanner,
             Text(
-              'In consequat, quam id sodales hendrerit, eros mi lacinia risus neque tristique augueproin tempus urna congue. elementum.',
+              '5% of your purchase goes to feeding stray animals',
+              textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: activeTextColor,
+              ),
+            ),
+            contentSpacingInBannerSm,
+            Text(
+              'so what are you waiting for!!? Get quality product for your furry friend along with helping the poor souls.',
               textAlign: screenShouldShrink ? TextAlign.center : TextAlign.left,
               overflow: TextOverflow.ellipsis,
               maxLines: 5,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: activeTextColor,
               ),
             ),
             contentSpacingInBanner,
@@ -86,7 +92,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
                 height: bannerSubsectionWidth / 1.3,
                 // height: bannerSubsectionWidth,
                 decoration: BoxDecoration(
-                  color: UiConstants.white.withOpacity(0.1),
+                  color: UiConstants.white.withOpacity(0.3),
                   borderRadius:
                       BorderRadius.circular(bannerSubsectionWidth / 2.0),
                 ),
@@ -103,7 +109,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
                     height: bannerSubsectionWidth / 1.47,
                     // height: bannerSubsectionWidth,
                     decoration: BoxDecoration(
-                      color: UiConstants.white.withOpacity(0.2),
+                      color: UiConstants.white.withOpacity(0.4),
                       borderRadius:
                           BorderRadius.circular(bannerSubsectionWidth / 2.0),
                     ),
@@ -133,7 +139,7 @@ class HomeBannerForegroundContent extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Image.asset(
-                'assets/images/cat-in-banner.png',
+                AssetItems.catInBannerImg,
                 fit: BoxFit.fitWidth,
               ),
             ),

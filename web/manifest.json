@@ -1,11 +1,11 @@
 {
-    "name": "catelyne_pet_flutter",
-    "short_name": "catelyne_pet_flutter",
+    "name": "Catelyn Pet Shop",
+    "short_name": "CPS",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FFFFFF",
+    "theme_color": "#17383E",
+    "description": "A cool new web project built with flutter web for an online store for your beloved pet",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

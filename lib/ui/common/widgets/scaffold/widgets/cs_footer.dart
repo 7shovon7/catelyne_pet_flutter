@@ -1,5 +1,6 @@
 import 'package:catelyne_pet_flutter/core/constants.dart';
 import 'package:catelyne_pet_flutter/core/utils.dart';
+import 'package:catelyne_pet_flutter/data/constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:catelyne_pet_flutter/ui/common/widgets/scaffold/widgets/banner_background.dart';
 import 'package:flutter/material.dart';
@@ -25,102 +26,103 @@ class _CsFooterState extends State<CsFooter> {
   // Future<void> _launchUrl
   @override
   Widget build(BuildContext context) {
+    final activeTextColor = Theme.of(context).colorScheme.onPrimary;
+
     final titleStyle = GoogleFonts.ibmPlexSerif(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: UiConstants.white,
+      color: activeTextColor,
     );
-    const bodyStyle = TextStyle(
+    final bodyStyle = TextStyle(
       fontSize: 16.0,
-      color: UiConstants.white,
+      color: activeTextColor,
     );
 
     Widget categoriesWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Categories',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        const Text(
-          'Beds (5)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Carriers (1)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Costumes (5)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Food (3)',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Toys (3)',
-          style: bodyStyle,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: DataConstants.productsSubMenuItems
+              .map((e) => Text(
+                    e,
+                    style: bodyStyle,
+                  ))
+              .toList(),
         ),
       ],
     );
 
     Widget contactsWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Contacts',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        InkWell(
-          onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
-          child: const Text(
-            'Phone: ${CoreConstants.companyPhone}',
-            style: bodyStyle,
-          ),
-        ),
-        InkWell(
-          onTap: () => CoreUtils.mail(CoreConstants.companyMail),
-          child: const Text(
-            'Email: ${CoreConstants.companyMail}',
-            style: bodyStyle,
-          ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: () => CoreUtils.makePhoneCall(CoreConstants.companyPhone),
+              child: Text(
+                'Phone: ${CoreConstants.companyPhone}',
+                style: bodyStyle,
+              ),
+            ),
+            InkWell(
+              onTap: () => CoreUtils.mail(CoreConstants.companyMail),
+              child: Text(
+                'Email: ${CoreConstants.companyMail}',
+                style: bodyStyle,
+              ),
+            ),
+          ],
         ),
       ],
     );
 
     Widget openningHoursWidget = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           'Opening Hours',
           style: titleStyle,
         ),
         const SizedBox(height: 10),
-        const Text(
-          'Mon-Fri: 10am - 8pm',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Sat: 10am - 4pm',
-          style: bodyStyle,
-        ),
-        const Text(
-          'Sun: 10am - 6pm',
-          style: bodyStyle,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Mon-Fri: 10am - 8pm',
+              style: bodyStyle,
+            ),
+            Text(
+              'Sat: 10am - 4pm',
+              style: bodyStyle,
+            ),
+            Text(
+              'Sun: 10am - 6pm',
+              style: bodyStyle,
+            ),
+          ],
         ),
       ],
     );
 
-    const divider = Divider(
+    final divider = Divider(
       height: 2,
       thickness: 0.2,
-      color: UiConstants.offWhite,
+      color: activeTextColor,
     );
 
     Widget smIcon({required IconData iconData, required String url}) {
@@ -131,13 +133,13 @@ class _CsFooterState extends State<CsFooter> {
           margin: const EdgeInsets.symmetric(horizontal: 20.0),
           decoration: BoxDecoration(
             border: Border.all(
-              color: UiConstants.offWhite,
+              color: activeTextColor,
             ),
             borderRadius: BorderRadius.circular(32),
           ),
           child: Icon(
             iconData,
-            color: UiConstants.white,
+            color: activeTextColor,
             size: 26.0,
           ),
         ),
@@ -171,8 +173,8 @@ class _CsFooterState extends State<CsFooter> {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Text(
           'Copyright © ${DateTime.now().year} ${CoreConstants.companyName}',
-          style: const TextStyle(
-            color: UiConstants.white,
+          style: TextStyle(
+            color: activeTextColor,
           ),
         ),
       ),

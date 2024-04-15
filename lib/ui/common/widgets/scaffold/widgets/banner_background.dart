@@ -1,3 +1,4 @@
+import 'package:catelyne_pet_flutter/core/assets.dart';
 import 'package:catelyne_pet_flutter/ui/common/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,10 +28,8 @@ class BannerBackground extends StatelessWidget {
           child: Opacity(
             opacity: 0.1,
             child: SvgPicture.asset(
-              'assets/images/paw-pattern-2.svg',
+              AssetItems.pawPatternSVG,
               fit: BoxFit.cover,
-              // height: height,
-              // width: double.infinity,
             ),
           ),
         ),

@@ -6,6 +6,7 @@ abstract class UiConstants {
   static const scaffoldBackgroundColor = Color.fromARGB(255, 244, 244, 244);
   static const white = Colors.white;
   static const offWhite = Color.fromARGB(255, 182, 182, 182);
+  static const Color bannerBgColor = Color(0xFFF9E8D9);
 
   static const double smallDisplayMaxWidth = 650;
   static const double largeDisplayMinWidth = 850.0;
