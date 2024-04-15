@@ -4,6 +4,7 @@ import 'package:catelyne_pet_flutter/ui/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:meta_seo/meta_seo.dart';
 
 void main() async {
@@ -15,4 +16,5 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
+  SemanticsBinding.instance.ensureSemantics();
 }
