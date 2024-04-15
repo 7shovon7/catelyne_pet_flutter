@@ -48,7 +48,7 @@ class _CsFooterState extends State<CsFooter> {
         const SizedBox(height: 10),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: DataConstants.productsSubMenuItems
               .map((e) => Text(
                     e,
@@ -90,34 +90,34 @@ class _CsFooterState extends State<CsFooter> {
       ],
     );
 
-    Widget openningHoursWidget = Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'Opening Hours',
-          style: titleStyle,
-        ),
-        const SizedBox(height: 10),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Mon-Fri: 10am - 8pm',
-              style: bodyStyle,
-            ),
-            Text(
-              'Sat: 10am - 4pm',
-              style: bodyStyle,
-            ),
-            Text(
-              'Sun: 10am - 6pm',
-              style: bodyStyle,
-            ),
-          ],
-        ),
-      ],
-    );
+    // Widget openningHoursWidget = Column(
+    //   crossAxisAlignment: CrossAxisAlignment.center,
+    //   children: [
+    //     Text(
+    //       'Opening Hours',
+    //       style: titleStyle,
+    //     ),
+    //     const SizedBox(height: 10),
+    //     Column(
+    //       mainAxisAlignment: MainAxisAlignment.start,
+    //       crossAxisAlignment: CrossAxisAlignment.start,
+    //       children: [
+    //         Text(
+    //           'Mon-Fri: 10am - 8pm',
+    //           style: bodyStyle,
+    //         ),
+    //         Text(
+    //           'Sat: 10am - 4pm',
+    //           style: bodyStyle,
+    //         ),
+    //         Text(
+    //           'Sun: 10am - 6pm',
+    //           style: bodyStyle,
+    //         ),
+    //       ],
+    //     ),
+    //   ],
+    // );
 
     final divider = Divider(
       height: 2,
@@ -125,9 +125,9 @@ class _CsFooterState extends State<CsFooter> {
       color: activeTextColor,
     );
 
-    Widget smIcon({required IconData iconData, required String url}) {
+    Widget smIcon({required IconData iconData, void Function()? onTap}) {
       return InkWell(
-        onTap: () async => await CoreUtils.openUrl(url),
+        onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(10.0),
           margin: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -153,16 +153,18 @@ class _CsFooterState extends State<CsFooter> {
         mainAxisSize: MainAxisSize.max,
         children: [
           smIcon(
+            iconData: FontAwesomeIcons.at,
+            onTap: () async => await CoreUtils.mail(CoreConstants.companyMail),
+          ),
+          smIcon(
             iconData: FontAwesomeIcons.facebook,
-            url: 'https://flutter.dev',
+            onTap: () async =>
+                await CoreUtils.openUrl(CoreConstants.companyFbUrl),
           ),
           smIcon(
             iconData: FontAwesomeIcons.instagram,
-            url: 'https://flutter.dev',
-          ),
-          smIcon(
-            iconData: FontAwesomeIcons.linkedin,
-            url: 'https://flutter.dev',
+            onTap: () async =>
+                await CoreUtils.openUrl(CoreConstants.companyInstaUrl),
           ),
         ],
       ),
@@ -200,12 +202,12 @@ class _CsFooterState extends State<CsFooter> {
                   ),
                   widget.contentWidth > UiConstants.smallDisplayMaxWidth
                       ? Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             categoriesWidget,
                             contactsWidget,
-                            openningHoursWidget,
+                            // openningHoursWidget,
                           ],
                         )
                       : Column(
@@ -215,7 +217,7 @@ class _CsFooterState extends State<CsFooter> {
                             const SizedBox(height: 40.0),
                             contactsWidget,
                             const SizedBox(height: 40.0),
-                            openningHoursWidget,
+                            // openningHoursWidget,
                           ],
                         ),
                   const SizedBox(height: 40.0),

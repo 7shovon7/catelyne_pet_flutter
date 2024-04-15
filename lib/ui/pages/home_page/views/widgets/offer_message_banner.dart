@@ -44,7 +44,7 @@ class HomepageOfferMessageBanner extends StatelessWidget {
                 ),
               ),
               Text(
-                'free delivery on your first purchase!',
+                'Free delivery all over Dhaka!',
                 maxLines: 5,
                 textAlign: TextAlign.center,
                 style: TextStyle(

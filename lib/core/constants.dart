@@ -53,4 +53,8 @@ abstract class CoreConstants {
     '$_food $_supplies',
   ];
   static const String companyMail = 'catelynpet@gmail.com';
+  static const String companyFbUrl =
+      'https://www.facebook.com/profile.php?id=100071532367874';
+  static const String companyInstaUrl =
+      'https://www.instagram.com/catelyn_pet_shop';
 }

@@ -20,7 +20,7 @@ class CoreUtils {
       scheme: 'tel',
       path: preparePhoneNumberForCalling(phoneNumber),
     );
-    await launchTheUrl(uri);
+    await _launchTheUrl(uri);
   }
 
   static Future<void> mail(String emailAddress) async {
@@ -28,15 +28,15 @@ class CoreUtils {
       scheme: 'mailto',
       path: emailAddress,
     );
-    await launchTheUrl(uri);
+    await _launchTheUrl(uri);
   }
 
   static Future<void> openUrl(String url) async {
     final Uri uri = Uri.parse(url);
-    launchTheUrl(uri);
+    _launchTheUrl(uri);
   }
 
-  static Future<void> launchTheUrl(Uri uri) async {
+  static Future<void> _launchTheUrl(Uri uri) async {
     if (!await canLaunchUrl(uri)) {
       // throw Exception('Could not launch $uri');
       debugPrint('WARNING: issue with launching url!');

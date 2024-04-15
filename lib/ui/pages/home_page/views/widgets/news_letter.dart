@@ -108,7 +108,7 @@ class NewsLetterSectionInHomePage extends StatelessWidget {
               ),
               const SizedBox(height: 10.0),
               Text(
-                'Enter your email address below to subscribe to our newsletter.',
+                'Enter your email address below to know about every latest updates!',
                 textAlign:
                     screenShouldShrink ? TextAlign.center : TextAlign.left,
                 style: const TextStyle(

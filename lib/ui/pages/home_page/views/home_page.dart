@@ -104,7 +104,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           child: Column(
             children: [
               SectionTitleWithButton(
-                title: 'Popular articles',
+                title: 'Pet Blogs',
                 buttonText: 'View All',
                 displayWidth: contentWidth,
                 onPressed: () {},
