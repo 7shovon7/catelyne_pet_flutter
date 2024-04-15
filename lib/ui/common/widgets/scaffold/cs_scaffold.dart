@@ -56,30 +56,30 @@ class _CsScaffoldState extends State<CsScaffold> {
                   Center(
                     child: SizedBox(
                       width: contentWidth,
-                      child: ListView(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
+                      child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal:
                               UiConstants.generalDisplayHorizontalPadding,
                         ),
-                        children: [
-                          MeasuredSize(
-                            onChange: (p0) {
-                              setState(() {
-                                bgHeight = p0.height;
-                              });
-                            },
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const CSNavBar(),
-                                // Banner main content
-                                ...widget.foregroundWidgets,
-                              ],
+                        child: Column(
+                          children: [
+                            MeasuredSize(
+                              onChange: (p0) {
+                                setState(() {
+                                  bgHeight = p0.height;
+                                });
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const CSNavBar(),
+                                  // Banner main content
+                                  ...widget.foregroundWidgets,
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

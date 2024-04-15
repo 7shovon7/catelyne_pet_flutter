@@ -16,5 +16,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
-  SemanticsBinding.instance.ensureSemantics();
+  if (kIsWeb) {
+    SemanticsBinding.instance.ensureSemantics();
+  }
 }
